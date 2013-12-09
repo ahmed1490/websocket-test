@@ -1,0 +1,22 @@
+<html>
+<head>
+	<script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+<script>
+WEB_SOCKET_SWF_LOCATION = "socket.io/static/flashsocket/WebSocketMain.swf";
+WEB_SOCKET_DEBUG = true; 
+//var socket = io.connect('localhost',{port: 8080, rememberTransport:true, transports:['flashsocket']});
+var socket = io.connect('localhost',{port: 8080});
+setTimeout(function(){
+	//console.log(socket.socket.transport)
+	alert(socket.socket.transport.constructor.name)
+},2000);
+  //var socket = io.connect('http://localhost');
+  //socket.on('news', function (data) {
+    //console.log(data);
+   socket.emit('message', { my: 'datas is thie' });
+  //});
+</script>
+</body>
+</html>
